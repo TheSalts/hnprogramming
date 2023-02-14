@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>향남고 프로그래밍 동아리</title>
+  </head>
+  <body>
+    <div class="modal">
+      <div class="modal_body" id="modal_body">
+        <br />
+        프로그래밍 동아리 신청
+        <br />
+        <br />
+        <h4 class="modalText">학번 & 이름</h4>
+        <input type="text" class="nameInput" placeholder="10101 홍길동" />
+        <br />
+        <h4 class="modalText">전화번호</h4>
+        <input type="text" class="nameInput" placeholder="01012345678" />
+        <br />
+        <button class="modalBtn" id="modalBtn">제출</button>
+      </div>
+    </div>
+    <img
+      class="darkmode"
+      src="/assets/night.png"
+      role="button"
+      onclick="darktoggle()"
+      id="darkmodeBtn"
+    />
+    <h1 class="title" id="title">
+      향남고등학교
+      <br />
+      프로그래밍 동아리
+    </h1>
+    <img src="/assets/programming.png" class="image-bg" />
+    <button class="button-64" onclick="showmodal()" role="button">
+      <span class="text" id="submitbtn">신청하러 가기</span>
+    </button>
+    <div id="pattern"></div>
+  </body>
+  <script>
+    var nowMode;
+    const isOsColorTheme = window.matchMedia("(prefers-color-scheme: dark)")
+      .matches
+      ? "dark"
+      : "light";
+    nowMode = isOsColorTheme;
+    function darktoggle() {
+      console.log(nowMode);
+      if (nowMode === "light") toDark();
+      else if (nowMode === "dark") toLight();
+    }
+
+    let submitbtn = document.getElementById("submitbtn");
+    let darkmode = document.getElementById("darkmodeBtn");
+
+    submitbtn.addEventListener("mouseover", () => {
+      submitbtn.style.background = "none";
+      submitbtn.style.color = "white";
+    });
+
+    submitbtn.addEventListener("mouseout", () => {
+      submitbtn.style.background = "";
+      if (nowMode === "dark") {
+        submitbtn.style.color = "white";
+        submitbtn.style.backgroundColor = "rgb(5, 6, 45)";
+      } else if (nowMode === "light") {
+        submitbtn.style.color = "black";
+        submitbtn.style.backgroundColor = "white";
+      }
+    });
+
+    darkmode.addEventListener("mouseover", () => {
+      if (nowMode === "light") {
+        darkmode.style.textDecoration = "none";
+        darkmode.style.color = "inherit";
+        darkmode.style.filter = "drop-shadow(5px 5px 5px #646cffaa)";
+      }
+    });
+
+    darkmode.addEventListener("mouseout", () => {
+      darkmode.style.textDecoration = "";
+      darkmode.style.color = "";
+      if (nowMode === "light") {
+        darkmode.style.filter = "invert(0%)";
+        darkmode.style.webkitFilter = "invert(0%)";
+      }
+      if (nowMode === "dark") {
+        darkmode.style.filter = "invert(100%)";
+        darkmode.style.webkitFilter = "invert(100%)";
+      }
+    });
+
+    function toDark() {
+      document.body.style.backgroundColor = "#0D1117";
+      document.body.style.transition = "background-color 0.5s ease";
+      document.getElementById("title").style.backgroundImage =
+        "linear-gradient(to left, #ffbc90, #ff3a18)";
+      document.getElementById("submitbtn").style.backgroundColor =
+        "rgb(5, 6, 45)";
+      document.getElementById("submitbtn").style.color = "white";
+      document.getElementById("darkmodeBtn").src = "/assets/light.png";
+      document.getElementById("darkmodeBtn").style.filter = "invert(100%)";
+      document.getElementById("darkmodeBtn").style.webkitFilter =
+        "invert(100%)";
+      nowMode = "dark";
+    }
+    function toLight() {
+      document.body.style.backgroundColor = "white";
+      document.body.style.transition = "background-color 0.5s ease";
+      document.getElementById("title").style.backgroundImage =
+        "linear-gradient(to left, #ca80ff, #5239f5)";
+      document.getElementById("submitbtn").style.backgroundColor = "white";
+      document.getElementById("submitbtn").style.color = "black";
+      document.getElementById("darkmodeBtn").src = "/assets/night.png";
+      document.getElementById("darkmodeBtn").style.filter = "invert(0%)";
+      document.getElementById("darkmodeBtn").style.webkitFilter = "invert(0%)";
+      nowMode = "light";
+    }
+    const modal = document.querySelector(".modal");
+
+    let body = document.body;
+
+    modal.addEventListener("click", (event) => {
+      if (event.target === modal) {
+        modal.classList.toggle("show");
+
+        if (!modal.classList.contains("show")) {
+          body.style.overflow = "auto";
+        }
+      }
+    });
+
+    function showmodal() {
+      modal.classList.toggle("show");
+
+      if (modal.classList.contains("show")) {
+        body.style.overflow = "hidden";
+      }
+    }
+  </script>
+  <script type="module">
+    import "/assets/light.png";
+    import "/assets/night.png";
+    import "/assets/programming.png";
+  </script>
+</html>

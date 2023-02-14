@@ -1,0 +1,253 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard-jp.css");
+/* Main Text */
+.title {
+  text-align: left;
+  vertical-align: middle;
+  margin-top: 200px;
+  margin-left: 40px;
+  color: #fff;
+  background-image: linear-gradient(to left, #ffbc90, #ff3a18);
+  animation: move-pattern 5s linear infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 90px;
+  font-family: "Pretendard JP", sans-serif;
+  font-feature-settings: "ss05";
+  font-weight: 800;
+}
+
+/* Background */
+body {
+  background-color: #0d1117;
+  transition: background-color 0.5s ease;
+  overflow: auto;
+  height: 200vh;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  margin: 0;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+/* CSS */
+.button-64 {
+  position: relative;
+  margin-left: 40px;
+  align-items: center;
+  background-image: linear-gradient(144deg, #af40ff, #5b42f3 50%, #00ddeb);
+  border: 0;
+  border-radius: 8px;
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  box-sizing: border-box;
+  color: white;
+  display: flex;
+  font-family: "Pretendard JP", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1em;
+  max-width: 100%;
+  min-width: 140px;
+  padding: 3px;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.button-64:active,
+.button-64:hover {
+  outline: 0;
+}
+
+.button-64 span {
+  background-color: rgb(5, 6, 45);
+  padding: 16px 24px;
+  border-radius: 6px;
+  width: 100%;
+  height: 100%;
+  transition: 300ms;
+  color: white;
+}
+
+/* .button-64:hover span {
+  background: none;
+  color: white;
+} */
+
+.darkmode {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  float: right;
+  margin-top: -180px;
+  margin-right: 20px;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+/* .darkmode:hover {
+  text-decoration: none;
+  color: inherit;
+  filter: drop-shadow(5px 5px 5px #646cffaa);
+} */
+
+.image-bg {
+  width: 45%;
+  height: 45%;
+  object-fit: contain;
+  float: right;
+  margin-top: -400px;
+  margin-right: 80px;
+  will-change: filter;
+  transition: filter 300ms;
+  background-color: transparent;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  text-align: center;
+
+  display: none;
+
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 2;
+}
+.modal.show {
+  display: block;
+}
+
+.modal_body {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  width: 500px;
+  height: 600px;
+
+  padding: 40px;
+
+  text-align: center;
+
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
+
+  transform: translateX(-50%) translateY(-50%);
+
+  font-family: "Pretendard JP", sans-serif;
+  font-size: 30px;
+}
+
+.modalBtn {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 15px;
+  font-weight: 500;
+  background-color: #1a1a1a;
+  color: white;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  font-family: "Pretendard JP", sans-serif;
+  position: relative;
+  top: 80px;
+}
+
+.modalBtn:hover {
+  border-color: #646cff;
+}
+.modalBtn:focus,
+.modalBtn:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+input[type="text"] {
+  border: none;
+  border-bottom: 2px solid #333;
+  background-color: transparent;
+  padding: 10px;
+  font-size: 18px;
+  color: #333;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+}
+
+input[type="text"]:focus {
+  border-bottom: 2px solid #0087e6;
+  transition: all 0.3s ease-in-out;
+}
+
+input[type="text"]:placeholder-shown {
+  border-bottom: 2px solid #ccc;
+  transition: all 0.3s ease-in-out;
+}
+
+.nameInput {
+  position: relative;
+  margin-top: 30;
+}
+
+.modalText {
+  position: relative;
+  top: 10px;
+  font-family: "Pretendard JP", sans-serif;
+  font-size: large;
+}
+
+@media (min-width: 768px) {
+  .button-64 {
+    font-size: 24px;
+    min-width: 196px;
+  }
+}
+
+/* Light Mode */
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: #fff;
+  }
+  .title {
+    background-image: linear-gradient(to left, #ca80ff, #5239f5);
+  }
+  .button-64 span {
+    background-color: white;
+    color: black;
+  }
+  .darkmode {
+    src: "/assets/night.png";
+  }
+}
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #0d1117;
+  }
+  .title {
+    background-image: linear-gradient(to left, #ffbc90, #ff3a18);
+  }
+  .button-64 span {
+    background-color: rgb(5, 6, 45);
+    color: white;
+  }
+  .darkmode {
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
+    src: "/assets/light.png";
+  }
+}
