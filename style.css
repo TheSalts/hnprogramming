@@ -211,10 +211,33 @@ input[type="text"]:placeholder-shown {
   font-size: large;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 788px) {
+  .title {
+    font-size: 40px;
+    margin-top: 200px;
+  }
+  .image-bg {
+    visibility: hidden;
+    display: none;
+  }
+  .darkmode {
+    margin-top: -175px;
+    width: 30px;
+    height: 30px;
+  }
   .button-64 {
-    font-size: 24px;
-    min-width: 196px;
+    min-width: 100px;
+    font-size: 14px;
+  }
+  .button-64 span {
+    padding: 12px 16px;
+  }
+}
+
+@media (min-width: 789px) and (max-width: 1250px) {
+  .image-bg {
+    visibility: hidden;
+    display: none;
   }
 }
 
